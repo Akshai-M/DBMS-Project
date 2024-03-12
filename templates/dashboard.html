@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            display: inline;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            background: #eae7e7c3;
+            top: 13rem;
+            left: 28%;
+        }
+
+        .red-box {
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            display: inline-block;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: auto;
+            height: auto;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        th {
+            background-color: #ffff;
+        }
+
+        .h {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background: lightskyblue;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 0 2rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="h">
+        <h1>Training Progress</h1>
+    </div>
+    <div class="red-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Course ID</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Progress Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if progress %}
+                    {% for item in progress %}
+                        <tr>
+                            <td>{{ item[0] }}</td>
+                            <td>{{ item[1] }}</td>
+                            <td>{{ item[2] }}</td>
+                            <td>{{ item[3] }}</td>
+                            <td>{{ item[4] }}</td>
+                        </tr>
+                    {% endfor %}
+                    {% set progress_count = progress|length %}
+                    
+                {% else %}
+                   
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
