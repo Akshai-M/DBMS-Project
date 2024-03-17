@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments</title>
+    <style>
+        body {
+            display: inline;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            background: #eae7e7c3;
+            top: 15rem;
+            left: 38%;
+        }
+
+        .red-box {
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            display: inline-block;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: auto;
+            height: auto;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ffff;
+        }
+
+        .h {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background: lightskyblue;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 0 2rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        .delete-btn {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="h">
+        <h1>Departments</h1>
+    </div>
+    <div class="red-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Department ID</th>
+                    <th>Department Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for department in departments %}
+                <tr>
+                    <td>{{ department[0] }}</td>
+                    <td>{{ department[1] }}</td>
+                    <td>
+                        <form class="delete-form" action="{{ url_for('delete_department', department_id=department[0]) }}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="delete-btn" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
