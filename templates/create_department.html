@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Department</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: block;
+            position: absolute;
+            margin: 7rem 32rem;
+            background: #eae7e7c3;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .red-box {
+            display: flex;
+            /* position: absolute; */
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(255, 255, 255);
+            /* border: 2px solid red; */
+            padding: 10px;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            width: 28.5rem;
+            height: 25rem;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
+        }
+        
+            .h{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background: lightskyblue;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 0 2rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+        input{
+            position: relative;
+            /* top: 5px; */
+        }
+    </style>
+</head>
+<body>
+    <div class="h"><h1>Create a New Department</h1></div>
+    <div class="red-box">
+        
+        <form action="/create_department" method="post">
+            <label for="department_id">Department ID:</label>
+            <input type="text" id="department_id" name="department_id" required><br><br>
+            <label for="department_name">Department Name:</label>
+            <input type="text" id="department_name" name="department_name" required><br><br>
+            <input type="submit" value="Create Department">
+        </form>
+    </div>
+</body>
+</html>
