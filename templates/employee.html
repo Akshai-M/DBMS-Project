@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees</title>
+    <style>
+        body {
+            display: inline;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+            background: #eae7e7c3;
+            top: 13rem;
+            left: 28%;
+        }
+
+        .red-box {
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ffff;
+        }
+
+        .h {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: lightskyblue;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 0 2rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            /* margin-bottom: 10px; */
+        }
+
+        .delete-btn {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="h">
+        <h1>Employees</h1>
+    </div>
+    <div class="red-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Employee ID</th>
+                    <th>Name</th>
+                    <th>Location</th>
+                    <th>Department ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee[0] }}</td>
+                    <td>{{ employee[1] }}</td>
+                    <td>{{ employee[2] }}</td>
+                    <td>{{ employee[3] }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_employee', employee_id=employee[0]) }}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="delete-btn" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p class="message">Total employee records: {{ employees|length }}</p>
+    </div>
+</body>
+</html>
