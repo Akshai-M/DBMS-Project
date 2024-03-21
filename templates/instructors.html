@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructors</title>
+    <style>
+        body {
+            display: inline-block;
+            justify-content: center;
+            align-items: center;
+            background: #eae7e7c3;
+            height: 100vh;
+            margin: 15rem 31rem;
+        }
+
+        .red-box {
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #ffff;
+        }
+
+        .h {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: lightskyblue;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 0 2rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            /* margin-bottom: 10px; */
+        }
+
+        /* Modify only the delete button */
+        .delete-btn {
+            background-color: #ff0000;
+            color: #fff;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="h">
+        <h1>Instructors</h1>
+    </div>
+    <div class="red-box">
+        <table>
+            <thead>
+                <tr>
+                    <th>Instructor ID</th>
+                    <th>Name</th>
+                    <th>Department ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for instructor in instructors %}
+                <tr>
+                    <td>{{ instructor[0] }}</td>
+                    <td>{{ instructor[1] }}</td>
+                    <td>{{ instructor[2] }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_instructor', instructor_id=instructor[0]) }}" method="POST">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="delete-btn" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
