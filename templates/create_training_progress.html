@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Training Progress</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: block;
+            position: absolute;
+            margin: 7rem 32rem;
+            background: #eae7e7c3;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+
+        .red-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(255, 255, 255);
+            padding: 10px;
+            margin-bottom: 20px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            width: 28.5rem;
+            height: 25rem;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .h {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background: lightskyblue;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 0 2rem;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+        }
+
+        input {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="h">
+        <h1>Create Training Progress</h1>
+    </div>
+    <div class="red-box">
+        <form action="/create_training_progress" method="post" id="training_progress_form">
+            <label for="employee_id">Employee ID:</label>
+            <input type="text" id="employee_id" name="employee_id" required><br><br>
+            <label for="course_id">Course ID:</label>
+            <input type="text" id="course_id" name="course_id" required><br><br>
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required><br><br>
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required><br><br>
+            <input type="submit" value="Create Training Progress">
+        </form>
+    </div>
+
+    <script>
+        // Get today's date in YYYY-MM-DD format
+        var today = new Date().toISOString().split('T')[0];
+        
+        // Set the min attribute of start_date and end_date inputs to today's date
+        document.getElementById("start_date").min = today;
+        document.getElementById("end_date").min = today;
+    </script>
+</body>
+</html>
