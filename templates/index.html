@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Management System</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+       
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .red-box {
+            background-color: lightskyblue;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0;
+            color: white;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type=text] {
+            padding: 10px;
+            width: 60%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .search-container button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .search-results {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .result-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .result-item:hover {
+            background-color: #f9f9f9;
+        }
+
+        
+
+        .red-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: lightskyblue;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+
+        /* ul {
+            list-style-type: none;
+            padding: 0;
+        } */
+        li {
+            margin-bottom: 10px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="red-box">
+        <h1>APPRENTICESHIP INFORMATION DATABASE SYSTEM</h1>
+    </div>
+    <ul>
+        <li><a href="/department">View Departments</a></li>
+        <li><a href="/employee">View Employees</a></li>
+        <li><a href="/course">View Courses</a></li>
+        <li><a href="/instructors">View Instructors</a></li>
+        <li><a href="/training_progress">View Training Progress</a></li>
+
+        <li><a href="/create_department">Create Department</a></li>
+        <li><a href="/create_employee">Create Employee</a></li>
+        <li><a href="/create_course">Create Course</a></li>
+        <li><a href="/create_instructors">Create Instructors</a></li>
+        <li><a href="/create_training_progress">Create Training Progress</a></li>
+    </ul>
+    <!-- <div class="container">
+        <div class="red-box">
+            <h1>APPRENTICESHIP INFORMATION DATABASE SYSTEM</h1>
+        </div> -->
+        <!-- <div class="search-container">
+            <input type="text" id="searchQuery" placeholder="Enter your search query...">
+            <button onclick="search()">Search</button>
+        </div>
+        <div id="searchResults" class="search-results"></div> -->
+    </div>
+
+    <!-- <script>
+        function search() {
+            var searchQuery = document.getElementById("searchQuery").value;
+            // Perform AJAX request to send search query to the server
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    displaySearchResults(JSON.parse(this.responseText));
+                }
+            };
+            xhr.open("POST", "/search", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("search_query=" + searchQuery);
+        }
+
+        function displaySearchResults(results) {
+            var searchResultsDiv = document.getElementById("searchResults");
+            searchResultsDiv.innerHTML = ""; // Clear previous search results
+            if (results.length === 0) {
+                searchResultsDiv.innerHTML = "No results found.";
+            } else {
+                results.forEach(function (result) {
+                    // Assuming result is an object with properties representing employee details
+                    var resultItem = document.createElement("div");
+                    resultItem.classList.add("result-item");
+                    resultItem.innerHTML = `
+                <p><strong>Employee ID:</strong> ${result.employee_id}</p>
+                <p><strong>Name:</strong> ${result.Emp_name}</p>
+                <p><strong>Location:</strong> ${result.location}</p>
+                <p><strong>Department ID:</strong> ${result.department_id}</p>
+            `;
+                    searchResultsDiv.appendChild(resultItem);
+                });
+            }
+        }
+
+    </script> -->
+</body>
+
+</html>
