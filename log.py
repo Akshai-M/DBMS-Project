@@ -13,9 +13,9 @@ app = Flask(__name__)
 def connect_db():
     return mysql.connector.connect(
         host='localhost',
-        user='root',
-        password='akshai@123kumar',
-        database='AIDS'
+        user='username',
+        password='password',
+        database='databasename'
     )
 def get_training_progress(employee_id):
     conn = connect_db()
